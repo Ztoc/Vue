@@ -8,7 +8,7 @@
       </div>
       <div class="basis-2/3">
         
-        <div class="columns-4">
+        <div class="grid xl:grid-cols-4 sm:grid-cols-3">
           
         <ProductCompo v-for="(item, index) in products" :key="index" :product="item">
         </ProductCompo>

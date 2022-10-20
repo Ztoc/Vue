@@ -1,6 +1,6 @@
 <template>
   <div
-    class=" border-blue-400 border-2 rounded-md shadow-pink-100 mb-10 px-5"
+    class=" border-blue-400 border-2 rounded-md shadow-pink-100 mb-10 px-5 h-40"
   >
     <div class="text-center font-extrabold text-2xl">
       {{ product.title }}
@@ -8,7 +8,7 @@
     <div class="text-center">
       {{product.body}}
     </div>
-    <div class="flex flex-row justify-between">
+    <div class=" flex flex-row justify-between justify-items-end">
         <div>{{product.type}}</div>
         <div class="text text-red-500">${{product.price}}</div>
     </div>
