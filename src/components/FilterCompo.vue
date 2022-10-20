@@ -1,27 +1,26 @@
 <template lang="html">
-  <div>
-    <div class="flex">
-      <p
-        v-for="(item, index) in lists"
-        :key="index"
-        class="mr-5 text-2xl hover:underline cursor-pointer"
-      >
+  <div class="flex flex-col">
+    <div class="space-x-4 ml-10 mb-5" v-for="(item, index) in lists" :key="index">
+      <input type="checkbox" name="" id="" class="text-3xl" />
+      <label for="a" class="font-serif text-gray-900 text-2xl">
         {{ item }}
-
-      </p>
-      
+      </label>
     </div>
   </div>
 </template>
 <!-- <script lang="ts">
 import { defineComponent, PropType } from 'vue'
 export default defineComponent({
-  name: 'NavBar',
+  name: 'FilterCom',
   props: {
     lists: Array as PropType<string[]>,
   },
+  mounted(){
+    console.log(this.lists)
+  }
 })
 </script> -->
+
 <script lang="ts" setup>
   import {defineProps} from 'vue';
   const props = defineProps<{
