@@ -6,7 +6,14 @@
       <div class="basis-1/3">
         <Filter :lists="filter_list" />
       </div>
-      <p class="basis-2/3">sadkfsdkfl;kl;</p>
+      <div class="basis-2/3">
+        
+        <div class="columns-4">
+          
+        <ProductCompo v-for="(item, index) in products" :key="index" :product="item">
+        </ProductCompo>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -31,9 +38,17 @@ export default defineComponent({
 import HeaderCom from '@/components/HeaderCompo.vue'
 import NavBar from '@/components/NavBar.vue'
 import Filter from '@/components/FilterCompo.vue'
-import { ref } from 'vue'
+import { ref ,onBeforeMount} from 'vue'
+import { useStore } from 'vuex'
+import { IProduct } from '@/store'
+import ProductCompo from '@/components/ProductCompo.vue'
 
+const store = useStore()
 const nav_list = ref(['CLOTH', 'GLASS', 'TROUSERS', 'SHOES'])
 const filter_list = ref(['CLOTH', 'GLASS', 'TROUSERS', 'SHOES'])
-
+const products = ref([] as IProduct[])
+onBeforeMount(() => {
+  store.dispatch('fetchProducts').then(() => {
+  products.value = store.state.products})
+})
 </script>
